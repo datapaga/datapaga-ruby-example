@@ -1,0 +1,26 @@
+<br>
+<h3>Tarjetas</h3>
+<br>
+<br>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha de Expiración</th>
+        <th scope="col">Número</th>
+        <th scope="col">Detalles</th>
+        <th scope="col">Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Cards['response'].each do |card|  %>
+        <tr>
+          <td><%= card['status'] == 'Active' ? "Activa" : "Desactivada" %></td>
+          <td><%= card['expiration_date'] %></td>
+          <td><%= card['card_number'] %></td>
+          <td><%= card['description'] %></td>
+          <td><a href="<%= url("/cards/#{card['uuid']}") %>" class="btn btn-primary">Ver</a></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

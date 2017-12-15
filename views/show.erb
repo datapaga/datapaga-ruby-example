@@ -1,0 +1,62 @@
+<br>
+<h3>Detalle de Transacción</h3>
+<br>
+<br>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="transaction-tab" data-toggle="tab" href="#transaction" role="tab" aria-controls="transaction" aria-selected="true">Transacción</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="client-tab" data-toggle="tab" href="#client" role="tab" aria-controls="client" aria-selected="false">Cliente</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="transaction" role="tabpanel" aria-labelledby="transaction-tab">
+  	 <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Número de confirmación</th>
+            <th scope="col">ID de transacción</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Hora y Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+	        <tr>
+	          <td><%= Detail['confirmation_number'] %></td>
+	          <td><%= Detail['transaction_id'] %></td>
+	          <td><%= Detail['total_amount'] %></td>
+	          <td><%= Detail['payment_status'] %></td>
+	          <td><%= Detail['transaction_time'] %></td>
+	          
+	        </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="tab-pane fade" id="client" role="tabpanel" aria-labelledby="client-tab">
+  	<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Email de Cliente</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">País</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">ZIP</th>
+          </tr>
+        </thead>
+        <tbody>
+	        <tr>
+	          <td><%= Detail['client_email'] %></td>
+	          <td><%= Detail['street'] %></td>
+	          <td><%= Detail['country'] %></td>
+	          <td><%= Detail['city'] %></td>
+	          <td><%= Detail['zip'] %></td>
+	        </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="pull-right">
+      	<a href="/" class="btn btn-info">Regresar</a>
+      </div>
+</div>
