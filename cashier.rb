@@ -8,7 +8,7 @@ DP = DataPaga::Rest::Client.new do |config|
   config.api_secret = ENV['DP_API_SECRET']
 end
 
-TXs = JSON.parse(DP.list)
+TXs = JSON.parse(DP.list_charges)
 Cards = JSON.parse(DP.cards)
 
 get '/' do 
@@ -22,7 +22,7 @@ get '/store_balance' do
 end
 
 get '/txs/:id' do
-  Detail = JSON.parse(DP.detail(id: params['id']))
+  Detail = JSON.parse(DP.charge_detail(id: params['id']))
   erb :show
 end
 
